@@ -33,6 +33,5 @@ public class Wallets extends AppCompatActivity {
     }
 
     public void Add(View view) {
-        startActivity(new Intent(this,AddWallet.class));
     }
 }

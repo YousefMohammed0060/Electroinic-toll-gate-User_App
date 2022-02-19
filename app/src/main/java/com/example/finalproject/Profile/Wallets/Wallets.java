@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,15 +24,15 @@ public class Wallets extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallets);
-        strings.add("Wallet1");
-        strings.add("Wallet2");
-        strings.add("Wallet3");
-        strings.add("Wallet4");
         WalletsRv=findViewById(R.id.WalletsRv);
         WalletsAdapter walletsAdapter=new WalletsAdapter(strings);
         WalletsRv.setAdapter(walletsAdapter);
         RecyclerView.LayoutManager LOM=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         WalletsRv.setLayoutManager(LOM);
 
+    }
+
+    public void Add(View view) {
+        startActivity(new Intent(this,AddWallet.class));
     }
 }

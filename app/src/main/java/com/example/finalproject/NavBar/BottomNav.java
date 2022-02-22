@@ -22,6 +22,7 @@ public class BottomNav extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
         fragmentManager=getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.ContanierLayout,new Home()).commit();
         MeowBottomNavigation navBottom=findViewById(R.id.navBottom);
         navBottom.add(new MeowBottomNavigation.Model(0,R.drawable.person));
         navBottom.add(new MeowBottomNavigation.Model(1,R.drawable.home));

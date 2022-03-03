@@ -37,8 +37,6 @@
         android:id="@+id/WalletsRv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="٠dp"
-        android:layout_marginBottom="٠dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -28,6 +28,7 @@ public class Wallets extends AppCompatActivity {
 
     }
 
+
     public void AddWallet(View view) {
     }
 }

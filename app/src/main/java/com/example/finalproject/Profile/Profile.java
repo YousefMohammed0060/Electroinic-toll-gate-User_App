@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.finalproject.Login.Login;
+import com.example.finalproject.Profile.Cars.Cars;
 import com.example.finalproject.Profile.EditProfile.EditProfile;
 import com.example.finalproject.Profile.Wallets.Wallets;
 import com.example.finalproject.R;
@@ -84,6 +86,7 @@ public class Profile extends Fragment implements View.OnClickListener{
         EditProfileLayout.setOnClickListener(this);
         WalletsLayout.setOnClickListener(this);
         CarsLayout.setOnClickListener(this);
+        Logout.setOnClickListener(this);
     }
 
     @Override
@@ -96,7 +99,10 @@ public class Profile extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(view.getContext(), Wallets.class));
                 break;
             case R.id.CarsLayout:
-                startActivity(new Intent(view.getContext(), Wallets.class));
+                startActivity(new Intent(view.getContext(), Cars.class));
+                break;
+            case R.id.Logout:
+                startActivity(new Intent(view.getContext(), Login.class));
                 break;
         }
     }

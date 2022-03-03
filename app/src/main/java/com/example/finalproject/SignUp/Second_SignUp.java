@@ -1,10 +1,15 @@
 package com.example.finalproject.SignUp;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.finalproject.Login.Login;
+import com.example.finalproject.NavBar.BottomNav;
 import com.example.finalproject.R;
 import com.vansuita.pickimage.bean.PickResult;
 import com.vansuita.pickimage.bundle.PickSetup;
@@ -45,5 +50,6 @@ public class Second_SignUp extends AppCompatActivity implements IPickResult {
     }
 
     public void SignUp(View view) {
+        startActivity(new Intent(Second_SignUp.this, BottomNav.class));
     }
 }

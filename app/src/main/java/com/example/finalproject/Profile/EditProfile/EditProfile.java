@@ -7,10 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.vansuita.pickimage.bean.PickResult;
+import com.vansuita.pickimage.bundle.PickSetup;
+import com.vansuita.pickimage.dialog.PickImageDialog;
+import com.vansuita.pickimage.listeners.IPickResult;
 
-public class FirstEditProfile extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity implements IPickResult {
 
     EditText EditName,EditEmail,EditPassword,EditNID,EditPhoneNumber,EditCity,OldPassword;
     ImageView EditProfileImage;
@@ -38,5 +43,16 @@ public class FirstEditProfile extends AppCompatActivity {
     }
 
     public void EditImage(View view) {
+        PickImageDialog.build(new PickSetup()).show(this);
+    }
+
+    @Override
+    public void onPickResult(PickResult r) {
+        if (r.getError() == null) {
+            EditProfileImage.setImageBitmap(r.getBitmap());
+
+        } else {
+            Toast.makeText(this, r.getError().getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

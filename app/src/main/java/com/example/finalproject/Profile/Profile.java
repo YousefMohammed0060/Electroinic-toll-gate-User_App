@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.finalproject.Profile.EditProfile.FirstEditProfile;
+import com.example.finalproject.Profile.EditProfile.EditProfile;
 import com.example.finalproject.Profile.Wallets.Wallets;
 import com.example.finalproject.R;
 
@@ -88,7 +88,7 @@ public class Profile extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.EditProfileLayout:
-                startActivity(new Intent(view.getContext(), FirstEditProfile.class));
+                startActivity(new Intent(view.getContext(), EditProfile.class));
                 break;
             case R.id.WalletsLayout:
                 startActivity(new Intent(view.getContext(), Wallets.class));

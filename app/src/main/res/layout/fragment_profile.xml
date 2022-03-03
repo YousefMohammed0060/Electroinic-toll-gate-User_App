@@ -38,17 +38,20 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ProfileImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="35dp"
             android:fontFamily="serif"
             android:padding="10dp"
             android:src="@drawable/person"
+            tools:src="@drawable/yousef"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:civ_border_width="6dp"
+            app:civ_border_color="@color/EditText"/>
 
         <TextView
             android:id="@+id/UserName"

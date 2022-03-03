@@ -93,14 +93,17 @@
         app:layout_constraintTop_toBottomOf="@+id/NewNID"
         android:fontFamily="serif" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/NemProfileImage"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="15dp"
         android:onClick="UploadImage"
         android:src="@drawable/person"
+        tools:src="@drawable/yousef"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:civ_border_width="6dp"
+        app:civ_border_color="@color/EditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

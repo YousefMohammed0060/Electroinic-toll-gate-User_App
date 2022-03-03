@@ -26,7 +26,7 @@
             android:name=".Profile.Wallets.Wallets"
             android:exported="false" />
         <activity
-            android:name=".Profile.EditProfile.FirstEditProfile"
+            android:name=".Profile.EditProfile.EditProfile"
             android:exported="false" />
         <activity
             android:name=".NavBar.BottomNav"

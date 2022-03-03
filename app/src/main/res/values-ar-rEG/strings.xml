@@ -36,4 +36,11 @@
     <string name="_1_open_qr_code_scanner">"1. افتح رمز الاستجابة السريعة. "</string>
     <string name="_2_point_your_camera_to_this_screen_to_capture_the_code">"2. وجّه الكاميرا إلى هذه الشاشة لالتقاط الرمز. "</string>
     <string name="Cars">السيارات</string>
+    <string name="Add_Car">اضافة سيارة</string>
+    <string name="Car_Model">نوع السيارة</string>
+    <string name="Car_Number">"رقم السيارة "</string>
+    <string name="Car_Letters">حروف السيارة</string>
+    <string name="Add_Wallet">اضافة محفظة</string>
+    <string name="Wallet_Name">اسم المحفظة</string>
+    <string name="Balance">الرصيد</string>
 </resources>

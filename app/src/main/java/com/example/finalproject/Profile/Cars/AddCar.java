@@ -8,16 +8,16 @@ import android.view.View;
 
 import com.example.finalproject.R;
 
-public class Cars extends AppCompatActivity {
+public class AddCar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cars);
+        setContentView(R.layout.activity_add_car);
     }
 
-    public void AddCar(View view) {
-        startActivity(new Intent(Cars.this,AddCar.class));
+    public void AddNewCar(View view) {
+        startActivity(new Intent(AddCar.this,Cars.class));
         finish();
     }
 }

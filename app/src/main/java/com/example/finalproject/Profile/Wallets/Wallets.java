@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.finalproject.Profile.Cars.AddCar;
+import com.example.finalproject.Profile.Cars.Cars;
 import com.example.finalproject.Profile.Wallets.RecyclerView.WalletsAdapter;
 import com.example.finalproject.R;
 
@@ -30,5 +33,7 @@ public class Wallets extends AppCompatActivity {
 
 
     public void AddWallet(View view) {
+        startActivity(new Intent(Wallets.this, AddWallet.class));
+        finish();
     }
 }

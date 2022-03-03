@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".Profile.Wallets.AddWallet"
+            android:exported="false" />
+        <activity
+            android:name=".Profile.Cars.AddCar"
+            android:exported="false" />
+        <activity
             android:name=".Profile.Cars.Cars"
             android:exported="false" />
 

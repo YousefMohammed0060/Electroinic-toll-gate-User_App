@@ -31,6 +31,13 @@
     <string name="wallet3">Wallet3</string>
     <string name="profile">Profile</string>
     <string name="Cars">Cars</string>
+    <string name="Add_Car">Add Car</string>
+    <string name="Car_Model">Car Model</string>
+    <string name="Car_Number">Car Number</string>
+    <string name="Car_Letters">Car Letters</string>
+    <string name="Add_Wallet">Add Wallet</string>
+    <string name="Wallet_Name">Wallet Name</string>
+    <string name="Balance">Balance</string>
     <string name="log_out">Log out</string>
     <string name="qr_code">Qr-Code</string>
     <string name="to_open_the_gate">To Open the Gate.</string>

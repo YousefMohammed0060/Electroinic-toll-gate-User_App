@@ -51,7 +51,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/float_btn_shape"
-        android:onClick="Add"
+        android:onClick="AddWallet"
         android:text="+"
         android:textColor="@color/white"
         android:textSize="26sp"

@@ -30,10 +30,10 @@
     <string name="wallet2">محفظة 2</string>
     <string name="wallet3">محفظة 3</string>
     <string name="profile">الملف الشخصى</string>
-    <string name="setting">الاعدادات</string>
     <string name="log_out">تسجيل الخروج</string>
     <string name="qr_code">"رمز الاستجابة السريعة "</string>
     <string name="to_open_the_gate">"لفتح البوابة. "</string>
     <string name="_1_open_qr_code_scanner">"1. افتح رمز الاستجابة السريعة. "</string>
     <string name="_2_point_your_camera_to_this_screen_to_capture_the_code">"2. وجّه الكاميرا إلى هذه الشاشة لالتقاط الرمز. "</string>
+    <string name="Cars">السيارات</string>
 </resources>

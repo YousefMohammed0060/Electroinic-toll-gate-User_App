@@ -4,17 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.finalproject.Profile.Wallets.RecyclerView.WalletsAdapter;
 import com.example.finalproject.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Wallets extends AppCompatActivity {
 
@@ -32,6 +28,6 @@ public class Wallets extends AppCompatActivity {
 
     }
 
-    public void Add(View view) {
+    public void AddWallet(View view) {
     }
 }

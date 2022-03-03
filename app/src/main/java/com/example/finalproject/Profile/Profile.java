@@ -23,7 +23,7 @@ import com.example.finalproject.R;
  */
 public class Profile extends Fragment implements View.OnClickListener{
     View view;
-    ConstraintLayout EditProfileLayout,WalletsLayout;
+    ConstraintLayout EditProfileLayout,WalletsLayout,CarsLayout;
     ImageView ProfileImage;
     TextView UserName,Logout;
     // TODO: Rename parameter arguments, choose names that match
@@ -80,8 +80,10 @@ public class Profile extends Fragment implements View.OnClickListener{
         Logout=view.findViewById(R.id.Logout);
         EditProfileLayout=view.findViewById(R.id.EditProfileLayout);
         WalletsLayout=view.findViewById(R.id.WalletsLayout);
+        CarsLayout=view.findViewById(R.id.CarsLayout);
         EditProfileLayout.setOnClickListener(this);
         WalletsLayout.setOnClickListener(this);
+        CarsLayout.setOnClickListener(this);
     }
 
     @Override
@@ -91,6 +93,9 @@ public class Profile extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(view.getContext(), EditProfile.class));
                 break;
             case R.id.WalletsLayout:
+                startActivity(new Intent(view.getContext(), Wallets.class));
+                break;
+            case R.id.CarsLayout:
                 startActivity(new Intent(view.getContext(), Wallets.class));
                 break;
         }

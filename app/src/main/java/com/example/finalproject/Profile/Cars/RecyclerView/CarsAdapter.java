@@ -23,13 +23,14 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarsHolder> {
     @Override
     public CarsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.walltes_item,parent,false);
+                .inflate(R.layout.cars_item,parent,false);
         CarsHolder holder=new CarsHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull CarsHolder holder, int position) {
+        holder.CarName.setText(strings.get(position));
     }
 
     @Override
@@ -38,8 +39,10 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarsHolder> {
     }
 
     class CarsHolder extends RecyclerView.ViewHolder {
+        TextView CarName;
         public CarsHolder(@NonNull View itemView) {
             super(itemView);
+            CarName=itemView.findViewById(R.id.CarName);
         }
     }
 }

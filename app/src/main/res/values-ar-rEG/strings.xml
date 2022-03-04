@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Final Project</string>
+    <string name="app_name">Electronic toll gates</string>
     <string name="edit_profile">"تعديل الملف الشخصي "</string>
     <string name="name">الاسم</string>
     <string name="email">البريد الاليكترونى</string>
@@ -43,4 +43,5 @@
     <string name="Add_Wallet">اضافة محفظة</string>
     <string name="Wallet_Name">اسم المحفظة</string>
     <string name="Balance">الرصيد</string>
+    <string name="ETG">ETG</string>
 </resources>

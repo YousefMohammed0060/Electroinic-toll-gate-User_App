@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.finalproject.Profile.Cars.AddCar;
-import com.example.finalproject.Profile.Cars.Cars;
 import com.example.finalproject.Profile.Wallets.RecyclerView.WalletsAdapter;
 import com.example.finalproject.R;
 
@@ -23,6 +21,11 @@ public class Wallets extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallets);
+        strings.add(" Wallet 1");
+        strings.add(" Wallet 2");
+        strings.add(" Wallet 3");
+        strings.add(" Wallet 4");
+        strings.add(" Wallet 5");
         WalletsRv=findViewById(R.id.WalletsRv);
         WalletsAdapter walletsAdapter=new WalletsAdapter(strings);
         WalletsRv.setAdapter(walletsAdapter);

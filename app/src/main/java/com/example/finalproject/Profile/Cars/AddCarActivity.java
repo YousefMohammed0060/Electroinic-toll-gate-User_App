@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.finalproject.R;
 
-public class AddCar extends AppCompatActivity {
+public class AddCarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class AddCar extends AppCompatActivity {
     }
 
     public void AddNewCar(View view) {
-        startActivity(new Intent(AddCar.this,Cars.class));
+        startActivity(new Intent(AddCarActivity.this, CarsActivity.class));
         finish();
     }
 }

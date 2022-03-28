@@ -5,66 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
-    tools:context=".SignUp.First_SignUp">
+    tools:context=".SignUp.RegisterActivity">
 
     <Button
-        android:id="@+id/signNext_btn"
-        android:layout_width="match_parent"
+        android:id="@+id/register_btn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/login_btn_shape"
-        android:onClick="Next"
-        android:text="@string/next"
+        android:fontFamily="serif"
+        android:onClick="Register"
         android:padding="10dp"
+        android:text="@string/Register"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmNewPassword"
-        android:fontFamily="serif"/>
+        app:layout_constraintEnd_toEndOf="@+id/ConfirmNewPassword"
+        app:layout_constraintStart_toStartOf="@+id/ConfirmNewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmNewPassword" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/signup"
+        android:layout_marginTop="100dp"
+        android:fontFamily="serif"
+        android:text="@string/Register"
         android:textColor="@color/white"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="serif" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/NewName"
+        android:id="@+id/NewEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
-        android:hint="@string/name"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/HintsColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:fontFamily="serif" />
-
-    <EditText
-        android:id="@+id/LoginEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_shape"
+        android:fontFamily="serif"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="15dp"
@@ -72,11 +54,10 @@
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NewName"
-        android:fontFamily="serif" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/LoginPassword"
+        android:id="@+id/NewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
@@ -89,7 +70,7 @@
         android:inputType="textPassword"
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginEmail"
+        app:layout_constraintTop_toBottomOf="@+id/NewEmail"
         android:fontFamily="serif"/>
 
     <EditText
@@ -107,6 +88,18 @@
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/NewPassword"
         android:fontFamily="serif" />
+
+    <TextView
+        android:id="@+id/alreadyHaveAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Already have an account?"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,32 +1,21 @@
-package com.example.finalproject.Bills;
+package com.example.finalproject.UserQR;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.finalproject.Bills.RecyclerView.BillsAdapter;
-import com.example.finalproject.Bills.RecyclerView.Model;
 import com.example.finalproject.R;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Bills#newInstance} factory method to
+ * Use the {@link User_qrFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Bills extends Fragment {
-    View view;
-    RecyclerView billsRv;
-    BillsAdapter billsAdapter;
-    ArrayList<Model> bills=new ArrayList<>();
+public class User_qrFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +26,7 @@ public class Bills extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Bills() {
+    public User_qrFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +36,11 @@ public class Bills extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Bills.
+     * @return A new instance of fragment UserQR.
      */
     // TODO: Rename and change types and number of parameters
-    public static Bills newInstance(String param1, String param2) {
-        Bills fragment = new Bills();
+    public static User_qrFragment newInstance(String param1, String param2) {
+        User_qrFragment fragment = new User_qrFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,22 +60,7 @@ public class Bills extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_bills, container, false);
-        billsRv=view.findViewById(R.id.billsRv);
-        Model m1=new Model("Success","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
-        Model m2=new Model("Failed","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        billsAdapter=new BillsAdapter(bills);
-        billsRv.setAdapter(billsAdapter);
-        RecyclerView.LayoutManager LOM=new LinearLayoutManager(view.getContext(),RecyclerView.VERTICAL,false);
-        billsRv.setLayoutManager(LOM);
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_user_qr, container, false);
     }
 }

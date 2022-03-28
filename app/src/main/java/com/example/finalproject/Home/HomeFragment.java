@@ -1,4 +1,4 @@
-package com.example.finalproject.Profile;
+package com.example.finalproject.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,25 +9,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.finalproject.Login.Login;
-import com.example.finalproject.Profile.Cars.Cars;
-import com.example.finalproject.Profile.EditProfile.EditProfile;
-import com.example.finalproject.Profile.Wallets.Wallets;
 import com.example.finalproject.R;
+import com.example.finalproject.SignUp.RegisterActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Profile#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Profile extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements View.OnClickListener {
+
     View view;
-    ConstraintLayout EditProfileLayout,WalletsLayout,CarsLayout;
-    ImageView ProfileImage;
-    TextView UserName,Logout;
+    ConstraintLayout Wallet1;
+    TextView HomeBalance,HomeLastTransaction;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +34,7 @@ public class Profile extends Fragment implements View.OnClickListener{
     private String mParam1;
     private String mParam2;
 
-    public Profile() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +44,11 @@ public class Profile extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Profile.
+     * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static Profile newInstance(String param1, String param2) {
-        Profile fragment = new Profile();
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,38 +68,23 @@ public class Profile extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_profile, container, false);
+        view=inflater.inflate(R.layout.fragment_home, container, false);
         inti();
         return view;
     }
 
     private void inti() {
-        ProfileImage=view.findViewById(R.id.ProfileImage);
-        UserName=view.findViewById(R.id.UserName);
-        Logout=view.findViewById(R.id.Logout);
-        EditProfileLayout=view.findViewById(R.id.EditProfileLayout);
-        WalletsLayout=view.findViewById(R.id.WalletsLayout);
-        CarsLayout=view.findViewById(R.id.CarsLayout);
-        EditProfileLayout.setOnClickListener(this);
-        WalletsLayout.setOnClickListener(this);
-        CarsLayout.setOnClickListener(this);
-        Logout.setOnClickListener(this);
+        HomeBalance=view.findViewById(R.id.HomeBalance);
+        HomeLastTransaction=view.findViewById(R.id.HomeLastTransaction);
+        Wallet1=view.findViewById(R.id.Wallet1);
+        Wallet1.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.EditProfileLayout:
-                startActivity(new Intent(view.getContext(), EditProfile.class));
-                break;
-            case R.id.WalletsLayout:
-                startActivity(new Intent(view.getContext(), Wallets.class));
-                break;
-            case R.id.CarsLayout:
-                startActivity(new Intent(view.getContext(), Cars.class));
-                break;
-            case R.id.Logout:
-                startActivity(new Intent(view.getContext(), Login.class));
+        switch (view.getId()){
+            case R.id.Wallet1:
+                startActivity(new Intent(view.getContext(), RegisterActivity.class));
                 break;
         }
     }

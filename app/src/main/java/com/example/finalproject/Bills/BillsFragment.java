@@ -1,21 +1,31 @@
-package com.example.finalproject.UserQR;
+package com.example.finalproject.Bills;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.finalproject.Bills.RecyclerView.BillsAdapter;
+import com.example.finalproject.Bills.RecyclerView.Model;
 import com.example.finalproject.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserQR#newInstance} factory method to
+ * Use the {@link BillsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserQR extends Fragment {
+public class BillsFragment extends Fragment {
+    View view;
+    RecyclerView billsRv;
+    BillsAdapter billsAdapter;
+    ArrayList<Model> bills=new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +36,7 @@ public class UserQR extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UserQR() {
+    public BillsFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +46,11 @@ public class UserQR extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UserQR.
+     * @return A new instance of fragment Bills.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserQR newInstance(String param1, String param2) {
-        UserQR fragment = new UserQR();
+    public static BillsFragment newInstance(String param1, String param2) {
+        BillsFragment fragment = new BillsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +70,22 @@ public class UserQR extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_qr, container, false);
+        view=inflater.inflate(R.layout.fragment_bills, container, false);
+        billsRv=view.findViewById(R.id.billsRv);
+        Model m1=new Model("Success","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
+        Model m2=new Model("Failed","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
+        bills.add(m1);
+        bills.add(m2);
+        bills.add(m1);
+        bills.add(m2);
+        bills.add(m1);
+        bills.add(m2);
+        bills.add(m1);
+        bills.add(m2);
+        billsAdapter=new BillsAdapter(bills);
+        billsRv.setAdapter(billsAdapter);
+        RecyclerView.LayoutManager LOM=new LinearLayoutManager(view.getContext(),RecyclerView.VERTICAL,false);
+        billsRv.setLayoutManager(LOM);
+        return view;
     }
 }

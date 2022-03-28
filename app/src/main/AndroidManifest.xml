@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,13 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
-            android:name=".Profile.Wallets.AddWallet"
+            android:name=".SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Profile.Wallets.AddWalletActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile.Cars.AddCar"
+            android:name=".Profile.Cars.AddCarActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile.Cars.Cars"
+            android:name=".Profile.Cars.CarsActivity"
             android:exported="false" />
 
         <provider
@@ -32,29 +42,23 @@
         </provider>
 
         <activity
-            android:name=".Profile.Wallets.Wallets"
+            android:name=".Profile.Wallets.WalletsActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile.EditProfile.EditProfile"
+            android:name=".Profile.EditProfile.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".NavBar.BottomNav"
+            android:name=".NavBar.BottomNavActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUp.First_SignUp"
+            android:name=".SignUp.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUp.Second_SignUp"
+            android:name=".SignUp.SetupProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Login.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Login.LoginActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

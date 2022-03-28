@@ -13,7 +13,7 @@ import com.example.finalproject.R;
 
 import java.util.ArrayList;
 
-public class Wallets extends AppCompatActivity {
+public class WalletsActivity extends AppCompatActivity {
 
     RecyclerView WalletsRv;
     ArrayList<String> strings=new ArrayList<>();
@@ -36,7 +36,7 @@ public class Wallets extends AppCompatActivity {
 
 
     public void AddWallet(View view) {
-        startActivity(new Intent(Wallets.this, AddWallet.class));
+        startActivity(new Intent(WalletsActivity.this, AddWalletActivity.class));
         finish();
     }
 }

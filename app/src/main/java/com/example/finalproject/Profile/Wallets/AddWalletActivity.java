@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.finalproject.Profile.Cars.AddCar;
-import com.example.finalproject.Profile.Cars.Cars;
 import com.example.finalproject.R;
 
-public class AddWallet extends AppCompatActivity {
+public class AddWalletActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +17,7 @@ public class AddWallet extends AppCompatActivity {
     }
 
     public void AddNewWallet(View view) {
-        startActivity(new Intent(AddWallet.this, Wallets.class));
+        startActivity(new Intent(AddWalletActivity.this, WalletsActivity.class));
         finish();
     }
 }

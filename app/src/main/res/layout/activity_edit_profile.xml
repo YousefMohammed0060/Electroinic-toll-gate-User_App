@@ -5,32 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
-    tools:context=".Profile.EditProfile.EditProfile">
-
-    <EditText
-        android:id="@+id/OldPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_shape"
-        android:fontFamily="serif"
-        android:hint="@string/old_password"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/HintsColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/EditProfileImage"
-        app:layout_constraintTop_toTopOf="@+id/EditProfileImage" />
+    tools:context=".Profile.EditProfile.EditProfileActivity">
 
     <Button
         android:id="@+id/Edit_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/login_btn_shape"
         android:fontFamily="serif"
@@ -41,36 +21,37 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/EditProfileImage"
-        app:layout_constraintTop_toBottomOf="@+id/OldPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/EditCity"
+        app:layout_constraintStart_toStartOf="@+id/EditCity"
+        app:layout_constraintTop_toBottomOf="@+id/EditProfileImage" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/EditProfileImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="serif"
         android:onClick="EditImage"
         android:padding="10dp"
         android:src="@drawable/yousef"
-        tools:src="@drawable/yousef"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:civ_border_color="@color/EditText"
+        app:civ_border_width="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditCity"
-        app:civ_border_width="6dp"
-        app:civ_border_color="@color/EditText"/>
+        tools:src="@drawable/yousef" />
 
     <EditText
         android:id="@+id/EditCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
         android:fontFamily="serif"
         android:hint="@string/city"
+        android:inputType="text"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/HintsColor"
@@ -83,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
         android:fontFamily="serif"
@@ -101,17 +82,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
+        android:editable="false"
         android:fontFamily="serif"
         android:hint="@string/national_id"
+        android:inputType="number"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/EditName" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -145,52 +128,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
         android:fontFamily="serif"
         android:hint="@string/name"
+        android:inputType="textPersonName"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <EditText
-        android:id="@+id/EditEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_shape"
-        android:fontFamily="serif"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/HintsColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditName" />
-
-    <EditText
-        android:id="@+id/EditPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_shape"
-        android:fontFamily="serif"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/HintsColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

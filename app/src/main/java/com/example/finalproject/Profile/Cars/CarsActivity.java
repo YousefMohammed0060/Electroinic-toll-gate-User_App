@@ -9,12 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.finalproject.Profile.Cars.RecyclerView.CarsAdapter;
-import com.example.finalproject.Profile.Wallets.RecyclerView.WalletsAdapter;
 import com.example.finalproject.R;
 
 import java.util.ArrayList;
 
-public class Cars extends AppCompatActivity {
+public class CarsActivity extends AppCompatActivity {
     RecyclerView CarsRV;
     ArrayList<String> CarsName=new ArrayList<>();
     @Override
@@ -34,7 +33,7 @@ public class Cars extends AppCompatActivity {
     }
 
     public void AddCar(View view) {
-        startActivity(new Intent(Cars.this,AddCar.class));
+        startActivity(new Intent(CarsActivity.this, AddCarActivity.class));
         finish();
     }
 }

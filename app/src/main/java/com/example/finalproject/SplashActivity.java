@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SplashActivity extends AppCompatActivity {
 
-    //hello
+
     FirebaseAuth mAuth;
     DatabaseReference mRef;
     FirebaseUser mUser;

@@ -36,7 +36,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     View view;
     ConstraintLayout EditProfileLayout,WalletsLayout,CarsLayout;
     ImageView ProfileImage;
-    TextView UserName,Logout;
+    TextView UserName;
 
     DatabaseReference mUserRef;
     FirebaseAuth mAuth;
@@ -94,14 +94,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     private void inti() {
         ProfileImage=view.findViewById(R.id.ProfileImage);
         UserName=view.findViewById(R.id.UserName);
-        Logout=view.findViewById(R.id.Logout);
         EditProfileLayout=view.findViewById(R.id.EditProfileLayout);
         WalletsLayout=view.findViewById(R.id.WalletsLayout);
         CarsLayout=view.findViewById(R.id.CarsLayout);
         EditProfileLayout.setOnClickListener(this);
         WalletsLayout.setOnClickListener(this);
         CarsLayout.setOnClickListener(this);
-        Logout.setOnClickListener(this);
 
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();

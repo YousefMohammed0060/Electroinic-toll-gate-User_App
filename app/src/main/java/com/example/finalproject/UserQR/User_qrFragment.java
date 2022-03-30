@@ -84,7 +84,7 @@ public class User_qrFragment extends Fragment {
         mUser=mAuth.getCurrentUser();
         Qr_CodeIv=view.findViewById(R.id.Qr_CodeIv);
 
-        QRGEncoder qrgEncoder = new QRGEncoder(mUser.getUid(), null, QRGContents.Type.TEXT, 350);
+        QRGEncoder qrgEncoder = new QRGEncoder(mUser.getUid(), null, QRGContents.Type.TEXT, 300);
         bitmap=qrgEncoder.getBitmap();
         Qr_CodeIv.setImageBitmap(bitmap);
     }

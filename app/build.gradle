@@ -67,5 +67,7 @@ dependencies {
 //    Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.4'
+    implementation 'com.google.zxing:core:3.4.1'
 
 }

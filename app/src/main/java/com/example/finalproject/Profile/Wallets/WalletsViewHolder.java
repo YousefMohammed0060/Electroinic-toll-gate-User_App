@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject.R;
 
 public class WalletsViewHolder extends RecyclerView.ViewHolder {
-    TextView WalletName;
+    public TextView WalletName;
     public WalletsViewHolder(@NonNull View itemView) {
         super(itemView);
         WalletName=itemView.findViewById(R.id.WalletName);

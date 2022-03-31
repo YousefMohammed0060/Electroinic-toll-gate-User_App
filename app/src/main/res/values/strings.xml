@@ -38,6 +38,8 @@
     <string name="Car_Letters">Car Letters</string>
     <string name="Add_Wallet">Add Wallet</string>
     <string name="Wallet_Name">Wallet Name</string>
+    <string name="Wallet_ID">Wallet ID</string>
+    <string name="EditWallet">Edit Wallet</string>
     <string name="Balance">Balance</string>
     <string name="log_out">Log out</string>
     <string name="qr_code">Qr-Code</string>

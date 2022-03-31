@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,13 +53,22 @@ public class WalletsActivity extends AppCompatActivity {
         options = new FirebaseRecyclerOptions.Builder<Wallets>().setQuery(walletRef,Wallets.class).build();
         adapter=new FirebaseRecyclerAdapter<Wallets, WalletsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, int position, @NonNull Wallets model) {
+            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Wallets model) {
                 if (model.getUserID().equals(mUser.getUid())){
                     holder.WalletName.setText(" "+model.WalletName);
                 }else {
                     holder.itemView.setVisibility(View.GONE);
                     holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                 }
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(WalletsActivity.this,WalletDetailsActivity.class);
+                        intent.putExtra("walletKey",getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull

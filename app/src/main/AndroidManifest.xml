@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".Profile.Wallets.WalletDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Profile.Wallets.AddWalletActivity"
             android:exported="false" />
         <activity

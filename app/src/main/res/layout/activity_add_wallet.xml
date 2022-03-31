@@ -33,7 +33,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/newCarNumber"
+        android:id="@+id/NewWalletBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -74,6 +74,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:inputType="number"
         android:background="@drawable/login_btn_shape"
         android:fontFamily="serif"
         android:onClick="AddNewWallet"
@@ -85,6 +86,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newCarNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/NewWalletBalance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

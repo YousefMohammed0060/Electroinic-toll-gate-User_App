@@ -1,37 +1,75 @@
 package com.example.finalproject.Profile.Wallets;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.example.finalproject.Profile.Wallets.RecyclerView.WalletsAdapter;
 import com.example.finalproject.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class WalletsActivity extends AppCompatActivity {
 
     RecyclerView WalletsRv;
-    ArrayList<String> strings=new ArrayList<>();
+
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    DatabaseReference mUserRef, walletRef;
+    FirebaseRecyclerAdapter<Wallets, WalletsViewHolder> adapter;
+    FirebaseRecyclerOptions<Wallets> options;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallets);
-        strings.add(" Wallet 1");
-        strings.add(" Wallet 2");
-        strings.add(" Wallet 3");
-        strings.add(" Wallet 4");
-        strings.add(" Wallet 5");
-        WalletsRv=findViewById(R.id.WalletsRv);
-        WalletsAdapter walletsAdapter=new WalletsAdapter(strings);
-        WalletsRv.setAdapter(walletsAdapter);
-        RecyclerView.LayoutManager LOM=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        WalletsRv.setLayoutManager(LOM);
+        inti();
+    LoadWallets();
+    }
 
+    private void inti() {
+        WalletsRv=findViewById(R.id.WalletsRv);
+        WalletsRv.setLayoutManager(new LinearLayoutManager(this));
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        walletRef = FirebaseDatabase.getInstance().getReference().child("Wallets");
+    }
+
+    private void LoadWallets() {
+        options = new FirebaseRecyclerOptions.Builder<Wallets>().setQuery(walletRef,Wallets.class).build();
+        adapter=new FirebaseRecyclerAdapter<Wallets, WalletsViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, int position, @NonNull Wallets model) {
+                if (model.getUserID().equals(mUser.getUid())){
+                    holder.WalletName.setText(" "+model.WalletName);
+                }else {
+                    holder.itemView.setVisibility(View.GONE);
+                    holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+                }
+            }
+
+            @NonNull
+            @Override
+            public WalletsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.walltes_item, parent, false);
+                return new WalletsViewHolder(view);
+            }
+        };
+        adapter.startListening();
+        WalletsRv.setAdapter(adapter);
     }
 
 

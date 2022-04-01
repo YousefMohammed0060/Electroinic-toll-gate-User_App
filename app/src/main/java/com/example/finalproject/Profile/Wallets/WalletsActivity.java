@@ -20,8 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 public class WalletsActivity extends AppCompatActivity {
 
     RecyclerView WalletsRv;
@@ -29,8 +27,8 @@ public class WalletsActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     DatabaseReference mUserRef, walletRef;
-    FirebaseRecyclerAdapter<Wallets, WalletsViewHolder> adapter;
-    FirebaseRecyclerOptions<Wallets> options;
+    FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder> adapter;
+    FirebaseRecyclerOptions<WalletsModel> options;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +48,10 @@ public class WalletsActivity extends AppCompatActivity {
     }
 
     private void LoadWallets() {
-        options = new FirebaseRecyclerOptions.Builder<Wallets>().setQuery(walletRef,Wallets.class).build();
-        adapter=new FirebaseRecyclerAdapter<Wallets, WalletsViewHolder>(options) {
+        options = new FirebaseRecyclerOptions.Builder<WalletsModel>().setQuery(walletRef, WalletsModel.class).build();
+        adapter=new FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Wallets model) {
+            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull WalletsModel model) {
                 if (model.getUserID().equals(mUser.getUid())){
                     holder.WalletName.setText(" "+model.WalletName);
                 }else {

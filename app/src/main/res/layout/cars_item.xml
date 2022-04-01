@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/CarName"
+        android:id="@+id/CarNameTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/Background"
@@ -25,7 +25,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
         android:background="@color/HintsColor"
-        app:layout_constraintBottom_toBottomOf="@+id/CarName"
+        app:layout_constraintBottom_toBottomOf="@+id/CarNameTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditProfileLayout" />

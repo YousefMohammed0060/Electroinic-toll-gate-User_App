@@ -1,13 +1,13 @@
 package com.example.finalproject.Profile.Wallets;
 
-public class Wallets {
+public class WalletsModel {
     String WalletName,UserID;
     int WalletBalance;
 
-    public Wallets() {
+    public WalletsModel() {
     }
 
-    public Wallets(String walletName, String userID, int walletBalance) {
+    public WalletsModel(String walletName, String userID, int walletBalance) {
         WalletName = walletName;
         UserID = userID;
         WalletBalance = walletBalance;

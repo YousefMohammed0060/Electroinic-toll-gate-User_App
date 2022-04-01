@@ -79,7 +79,7 @@ public class AddWalletActivity extends AppCompatActivity {
             hashMap.put("WalletBalance", WalletBalance);
 
 
-            mWalletRef.child(WalletName+mUser.getUid()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
+            mWalletRef.child(mUser.getUid()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                 @Override
                 public void onSuccess(Object o) {
                     mLoadingBar.dismiss();

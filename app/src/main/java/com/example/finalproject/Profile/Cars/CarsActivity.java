@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +73,6 @@ public class CarsActivity extends AppCompatActivity {
     }
 
     public void AddCar(View view) {
-
+       startActivity(new Intent(CarsActivity.this,AddCarActivity.class));
     }
 }

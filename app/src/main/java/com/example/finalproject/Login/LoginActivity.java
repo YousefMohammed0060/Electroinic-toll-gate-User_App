@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.finalproject.NavBar.BottomNavActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.SignUp.RegisterActivity;
+import com.example.finalproject.forgetpassword.ForgetPasswordActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -89,4 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         field.requestFocus();
     }
 
+    public void forgetPassTV(View view) {
+       startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+    }
 }

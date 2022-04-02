@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,11 +15,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.finalproject.Profile.Wallets.WalletDetailsActivity;
-import com.example.finalproject.Profile.Wallets.Wallets;
-import com.example.finalproject.Profile.Wallets.WalletsActivity;
+import com.example.finalproject.Profile.Wallets.WalletsModel;
 import com.example.finalproject.Profile.Wallets.WalletsViewHolder;
 import com.example.finalproject.R;
-import com.example.finalproject.SignUp.RegisterActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,8 +42,8 @@ public class HomeFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     DatabaseReference mUserRef, walletRef;
-    FirebaseRecyclerAdapter<Wallets, WalletsViewHolder> adapter;
-    FirebaseRecyclerOptions<Wallets> options;
+    FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder> adapter;
+    FirebaseRecyclerOptions<WalletsModel> options;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -98,10 +95,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void LoadWallets() {
-        options = new FirebaseRecyclerOptions.Builder<Wallets>().setQuery(walletRef,Wallets.class).build();
-        adapter=new FirebaseRecyclerAdapter<Wallets, WalletsViewHolder>(options) {
+        options = new FirebaseRecyclerOptions.Builder<WalletsModel>().setQuery(walletRef, WalletsModel.class).build();
+        adapter=new FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Wallets model) {
+            protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull WalletsModel model) {
                 if (model.getUserID().equals(mUser.getUid())){
                     holder.WalletName.setText(" "+model.getWalletName());
                     holder.WalletName.setBackgroundResource(R.color.layouts);

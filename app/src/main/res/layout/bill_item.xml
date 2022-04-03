@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="200dp"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="5dp"
     android:layout_marginRight="20dp"
@@ -17,7 +17,7 @@
         android:fontFamily="serif"
         android:text="@string/status"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/BillStatus" />
@@ -26,12 +26,12 @@
         android:id="@+id/BillStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="serif"
         android:text="@string/success"
         android:textColor="@color/Green"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
         android:fontFamily="serif"
         android:text="Yousef"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/BillStatus"
         app:layout_constraintTop_toBottomOf="@+id/view6" />
@@ -69,7 +69,7 @@
         android:fontFamily="serif"
         android:text="@string/name"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/BillName" />
@@ -94,7 +94,7 @@
         android:fontFamily="serif"
         android:text="@string/date"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/BillDate" />
@@ -107,7 +107,7 @@
         android:fontFamily="serif"
         android:text="2022/02/09"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/BillStatus"
         app:layout_constraintTop_toBottomOf="@+id/view7" />
@@ -126,66 +126,28 @@
         app:layout_constraintTop_toBottomOf="@+id/BillDate" />
 
     <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="@string/time"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/BillTime" />
-
-    <TextView
-        android:id="@+id/BillTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="serif"
-        android:text="03:00 PM"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/BillStatus"
-        app:layout_constraintTop_toBottomOf="@+id/view8" />
-
-    <View
-        android:id="@+id/view9"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="45dp"
-        android:background="@color/HintsColor"
-        android:fontFamily="serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BillTime" />
-
-    <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="serif"
         android:text="@string/price"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/BillPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/view8" />
 
     <TextView
         android:id="@+id/BillPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:fontFamily="serif"
         android:text="10 L.E"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/BillStatus"
-        app:layout_constraintTop_toBottomOf="@+id/view9" />
+        app:layout_constraintTop_toTopOf="@+id/textView28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

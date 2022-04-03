@@ -1,18 +1,27 @@
 package com.example.finalproject.Bills;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.example.finalproject.Bills.RecyclerView.BillsAdapter;
-import com.example.finalproject.Bills.RecyclerView.Model;
 import com.example.finalproject.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -24,8 +33,13 @@ import java.util.ArrayList;
 public class BillsFragment extends Fragment {
     View view;
     RecyclerView billsRv;
-    BillsAdapter billsAdapter;
-    ArrayList<Model> bills=new ArrayList<>();
+
+
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    DatabaseReference mUserRef, billRef;
+    FirebaseRecyclerAdapter<billModel, billViewHolder> adapter;
+    FirebaseRecyclerOptions<billModel> options;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,21 +85,46 @@ public class BillsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_bills, container, false);
-        billsRv=view.findViewById(R.id.billsRv);
-        Model m1=new Model("Success","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
-        Model m2=new Model("Failed","Yousef Mohammed","2022/09/10","12:00 AM","10 L.E");
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        bills.add(m1);
-        bills.add(m2);
-        billsAdapter=new BillsAdapter(bills);
-        billsRv.setAdapter(billsAdapter);
-        RecyclerView.LayoutManager LOM=new LinearLayoutManager(view.getContext(),RecyclerView.VERTICAL,false);
-        billsRv.setLayoutManager(LOM);
+
+        inti();
+        LoadBills();
         return view;
+    }
+
+    private void inti() {
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        billRef = FirebaseDatabase.getInstance().getReference().child("Bills");
+        billsRv=view.findViewById(R.id.billsRv);
+        billsRv.setLayoutManager(new LinearLayoutManager(view.getContext()));
+    }
+
+    private void LoadBills() {
+        options = new FirebaseRecyclerOptions.Builder<billModel>().setQuery(billRef, billModel.class).build();
+        adapter=new FirebaseRecyclerAdapter<billModel, billViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull billViewHolder holder, int position, @NonNull billModel model) {
+                if (mUser.getUid().equals(model.getUserID())){
+                    holder.BillStatus.setText(model.getStatus());
+                    holder.BillName.setText(model.getUsername());
+                    holder.BillDate.setText(model.getDate());
+                    holder.BillPrice.setText(model.getPrice()+" E.L");
+                }else {
+                    holder.itemView.setVisibility(View.GONE);
+                    holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+                }
+            }
+
+            @NonNull
+            @Override
+            public billViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.bill_item, parent, false);
+                return new billViewHolder(view);
+            }
+        };
+        adapter.startListening();
+        billsRv.setAdapter(adapter);
     }
 }

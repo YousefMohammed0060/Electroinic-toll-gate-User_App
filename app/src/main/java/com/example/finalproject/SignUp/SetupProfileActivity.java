@@ -41,6 +41,7 @@ public class SetupProfileActivity extends AppCompatActivity{
     DatabaseReference mRef;
     StorageReference storageRef;
     ProgressDialog mLoadingBar;
+    String password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class SetupProfileActivity extends AppCompatActivity{
         mRef = FirebaseDatabase.getInstance().getReference().child("Users");
         storageRef = FirebaseStorage.getInstance().getReference().child("ProfileImages");
         mLoadingBar=new ProgressDialog(this);
+        password=getIntent().getStringExtra("password");
     }
 
     public void UploadImage(View view) {
@@ -99,6 +101,9 @@ public class SetupProfileActivity extends AppCompatActivity{
                             public void onSuccess(Uri uri) {
                                 HashMap hashMap=new HashMap();
                                 hashMap.put("username",Username);
+                                hashMap.put("userId",mUser.getUid());
+                                hashMap.put("email",mUser.getEmail());
+                                hashMap.put("password",password);
                                 hashMap.put("city",City);
                                 hashMap.put("phone",Phone);
                                 hashMap.put("nationalID",NID);

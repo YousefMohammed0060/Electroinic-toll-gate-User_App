@@ -5,6 +5,7 @@ import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,10 +107,20 @@ public class BillsFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull billViewHolder holder, int position, @NonNull billModel model) {
                 if (mUser.getUid().equals(model.getUserID())){
-                    holder.BillStatus.setText(model.getStatus());
-                    holder.BillName.setText(model.getUsername());
-                    holder.BillDate.setText(model.getDate());
-                    holder.BillPrice.setText(model.getPrice()+" E.L");
+                    if (model.getStatus().equals("Success")){
+                        holder.BillStatus.setText(model.getStatus());
+                        holder.BillStatus.setTextColor(ContextCompat.getColor(view.getContext(), R.color.Green));
+                        holder.BillName.setText(model.getUsername());
+                        holder.BillDate.setText(model.getDate());
+                        holder.BillPrice.setText(model.getPrice()+" L.E");
+                    }else if (model.getStatus().equals("Failed")){
+                        holder.BillStatus.setText(model.getStatus());
+                        holder.BillStatus.setTextColor(ContextCompat.getColor(view.getContext(), R.color.Red));
+                        holder.BillName.setText(model.getUsername());
+                        holder.BillDate.setText(model.getDate());
+                        holder.BillPrice.setText(model.getPrice()+" L.E");
+                    }
+
                 }else {
                     holder.itemView.setVisibility(View.GONE);
                     holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));

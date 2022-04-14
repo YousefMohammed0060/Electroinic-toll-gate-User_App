@@ -139,11 +139,11 @@ public class HomeFragment extends Fragment {
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         walletRef = FirebaseDatabase.getInstance().getReference().child("Wallets");
 
-        walletRef.child("joePygX5H6lIvh6SZR6F8MQOsuLVGA2").addValueEventListener(new ValueEventListener() {
+        walletRef.child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    HomeBalance.setText(snapshot.child("WalletBalance").getValue().toString());
+                    HomeBalance.setText(" "+snapshot.child("WalletBalance").getValue().toString());
                 }
             }
 

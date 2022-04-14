@@ -31,17 +31,17 @@ import java.util.HashMap;
 public class SetupProfileActivity extends AppCompatActivity{
 
 
-    private static final int REQUEST_CODE = 101;
-    ImageView NemProfileImage;
-    EditText NewName,NewCity,NewPhoneNumber,NewNID;
+        private static final int REQUEST_CODE = 101;
+        ImageView NemProfileImage;
+        EditText NewName,NewCity,NewPhoneNumber,NewNID;
 
-    Uri imageUri;
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
-    DatabaseReference mRef;
-    StorageReference storageRef;
-    ProgressDialog mLoadingBar;
-    String password;
+        Uri imageUri;
+        FirebaseAuth mAuth;
+        FirebaseUser mUser;
+        DatabaseReference mRef;
+        StorageReference storageRef;
+        ProgressDialog mLoadingBar;
+        String password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

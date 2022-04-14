@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".Profile.Cars.CarDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".forgetpassword.ForgetPasswordActivity"
             android:exported="false" />
         <activity

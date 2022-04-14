@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import com.example.finalproject.Profile.Cars.RecyclerView.CarsModel;
 
 import com.example.finalproject.Profile.Cars.RecyclerView.CarsViewHolder;
+import com.example.finalproject.Profile.Wallets.WalletDetailsActivity;
+import com.example.finalproject.Profile.Wallets.WalletsActivity;
 import com.example.finalproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -49,13 +51,22 @@ public class CarsActivity extends AppCompatActivity {
         options = new FirebaseRecyclerOptions.Builder<CarsModel>().setQuery(carRef, CarsModel.class).build();
         carAdapter = new FirebaseRecyclerAdapter<CarsModel, CarsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull CarsViewHolder holder,  int position, @NonNull CarsModel model) {
+            protected void onBindViewHolder(@NonNull CarsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull CarsModel model) {
                 if (model.getUserID().equals(mUser.getUid())){
                     holder.carName.setText(" "+ model.getCarModel());
                 }else {
                     holder.itemView.setVisibility(View.GONE);
                     holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                 }
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(CarsActivity.this, CarDetailsActivity.class);
+                        intent.putExtra("carKey",getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
 
             }
 

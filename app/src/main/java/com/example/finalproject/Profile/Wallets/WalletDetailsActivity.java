@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class WalletDetailsActivity extends AppCompatActivity {
 
@@ -66,5 +70,20 @@ public class WalletDetailsActivity extends AppCompatActivity {
     }
 
     public void EditWallet(View view) {
+        int balance=new Integer(EditWalletBalance.getText().toString());
+        HashMap hashMap=new HashMap();
+            hashMap.put("UserID",walletKey);
+            hashMap.put("WalletBalance",balance);
+            hashMap.put("WalletName",EditWalletName.getText().toString());
+            walletRef.updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+                @Override
+                public void onComplete(@NonNull Task task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(WalletDetailsActivity.this, "Wallet Updated", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(WalletDetailsActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
     }
 }

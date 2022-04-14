@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile.Wallets.WalletDetailsActivity"
+    tools:context=".Profile.Cars.CarDetailsActivity"
     android:background="@color/Background">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/text_view_shape"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:gravity="center"
             android:padding="20dp"
-            android:text="@string/EditWallet"
+            android:text="@string/Edit_Car"
             android:textColor="@color/white"
             android:textSize="48sp"
             android:textStyle="bold"
@@ -32,61 +32,87 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/EditWalletBalance"
+        android:id="@+id/carID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
         android:fontFamily="serif"
-        android:hint="@string/Balance"
-        android:inputType="number"
+        android:hint="CarID : "
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditWalletName" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
     <EditText
-        android:id="@+id/WalletID"
+        android:id="@+id/EditCarModel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_shape"
-        android:enabled="false"
         android:fontFamily="serif"
-        android:hint="@string/Wallet_ID"
-        android:inputType="text"
+        android:hint="@string/Car_Model"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/HintsColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/carID" />
 
-    <EditText
-        android:id="@+id/EditWalletName"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_shape"
-        android:fontFamily="serif"
-        android:hint="@string/Wallet_Name"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/HintsColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WalletID" />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/EditCarModel">
+
+        <EditText
+            android:id="@+id/EditCarNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="serif"
+            android:hint="@string/Car_Number"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/HintsColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NewCarModel" />
+
+        <EditText
+            android:id="@+id/EditCarLetters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_shape"
+            android:fontFamily="serif"
+            android:hint="@string/Car_Letters"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/HintsColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/NewCarNumber"
+            app:layout_constraintTop_toTopOf="@+id/NewCarNumber" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/AddNewWallet_btn"
+        android:id="@+id/AddNewCar_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -94,8 +120,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/login_btn_shape"
         android:fontFamily="serif"
-        android:inputType="number"
-        android:onClick="EditWallet"
+        android:onClick="EditCar"
         android:padding="10dp"
         android:text="@string/edit"
         android:textColor="@color/white"
@@ -104,6 +129,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditWalletBalance" />
-
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

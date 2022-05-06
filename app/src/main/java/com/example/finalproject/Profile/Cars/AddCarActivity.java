@@ -28,7 +28,7 @@ public class AddCarActivity extends AppCompatActivity {
     FirebaseUser mUser;
     ProgressDialog mLoadingBar;
     EditText carModel, carNumber, carLetters;
-    String carModelStr, carNumberStr, carLetterStr;
+    String carModelStr, carNumberStr, carLetterStr,fullPlateNO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +48,11 @@ public class AddCarActivity extends AppCompatActivity {
         carModelStr = carModel.getText().toString();
         carNumberStr = carNumber.getText().toString();
         carLetterStr = carLetters.getText().toString();
+        fullPlateNO=carLetterStr+carNumberStr;
         // validation
         if (carModelStr.isEmpty()) {
             showError(carModel, "Please Enter your car Model");
-        } else if (carNumberStr.isEmpty() || carNumberStr.length() < 4) {
+        } else if (carNumberStr.isEmpty() || carNumberStr.length() < 3) {
             showError(carNumber, "Please Enter a valid car number between 2 to 4 numbers");
         } else if (carLetterStr.isEmpty() || carLetterStr.length() < 3) {
             showError(carLetters, "Please Enter a valid car letters between 2 to 4 letters");
@@ -65,13 +66,14 @@ public class AddCarActivity extends AppCompatActivity {
             hashMap.put("CarModel", carModelStr);
             hashMap.put("CarNumbers", carNumberStr);
             hashMap.put("CarLetters", carLetterStr);
+            hashMap.put("FullPlateNO", fullPlateNO);
 
             mAddCar.child(mUser.getUid()).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener() {
                 @Override
                 public void onSuccess(Object o) {
                     mLoadingBar.dismiss();
                     startActivity(new Intent(AddCarActivity.this, BottomNavActivity.class));
-                    Toast.makeText(AddCarActivity.this, "Add wallet completed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCarActivity.this, "Add car completed", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {

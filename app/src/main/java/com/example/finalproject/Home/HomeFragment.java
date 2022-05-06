@@ -13,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.finalproject.Bills.billModel;
 import com.example.finalproject.Profile.Wallets.WalletDetailsActivity;
 import com.example.finalproject.Profile.Wallets.WalletsModel;
 import com.example.finalproject.Profile.Wallets.WalletsViewHolder;
@@ -28,6 +30,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
@@ -37,11 +43,11 @@ public class HomeFragment extends Fragment {
 
     View view;
     RecyclerView HomeWalletsRv;
-    TextView HomeBalance,HomeLastTransaction;
+    TextView HomeBalance, HomeLastTransaction;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    DatabaseReference mUserRef, walletRef;
+    DatabaseReference mUserRef, walletRef, billRef;
     FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder> adapter;
     FirebaseRecyclerOptions<WalletsModel> options;
 
@@ -88,21 +94,47 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
         inti();
         LoadWallets();
         return view;
     }
 
     private void LoadWallets() {
+        billRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<billModel> billModels = new ArrayList<>();
+                List<Integer> priceModels = new ArrayList<>();
+                billModels.clear();
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    billModel billModel = postSnapshot.getValue(billModel.class);
+                    billModels.add(billModel);
+                }
+                for (int i = 0; i < billModels.size(); i++) {
+                    String userId = billModels.get(i).getUserID();
+                    if (mUser.getUid().equals(userId)) {
+                        priceModels.add(billModels.get(i).getPrice());
+                    }
+                }
+                HomeLastTransaction.setText(priceModels.get(priceModels.size() - 1) + "");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         options = new FirebaseRecyclerOptions.Builder<WalletsModel>().setQuery(walletRef, WalletsModel.class).build();
-        adapter=new FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder>(options) {
+        adapter = new FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull WalletsViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull WalletsModel model) {
-                if (model.getUserID().equals(mUser.getUid())){
-                    holder.WalletName.setText(" "+model.getWalletName());
+                if (model.getUserID().equals(mUser.getUid())) {
+                    holder.WalletName.setText(" " + model.getWalletName());
                     holder.WalletName.setBackgroundResource(R.color.layouts);
-                }else {
+                } else {
                     holder.itemView.setVisibility(View.GONE);
                     holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                 }
@@ -110,8 +142,8 @@ public class HomeFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(view.getContext(), WalletDetailsActivity.class);
-                        intent.putExtra("walletKey",getRef(position).getKey());
+                        Intent intent = new Intent(view.getContext(), WalletDetailsActivity.class);
+                        intent.putExtra("walletKey", getRef(position).getKey());
                         startActivity(intent);
                     }
                 });
@@ -129,21 +161,22 @@ public class HomeFragment extends Fragment {
     }
 
     private void inti() {
-        HomeBalance=view.findViewById(R.id.HomeBalance);
-        HomeLastTransaction=view.findViewById(R.id.HomeLastTransaction);
-        HomeWalletsRv=view.findViewById(R.id.HomeWalletsRv);
+        HomeBalance = view.findViewById(R.id.HomeBalance);
+        HomeLastTransaction = view.findViewById(R.id.HomeLastTransaction);
+        HomeWalletsRv = view.findViewById(R.id.HomeWalletsRv);
         HomeWalletsRv.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         walletRef = FirebaseDatabase.getInstance().getReference().child("Wallets");
+        billRef = FirebaseDatabase.getInstance().getReference().child("Bills");
 
         walletRef.child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    HomeBalance.setText(" "+snapshot.child("WalletBalance").getValue().toString());
+                if (snapshot.exists()) {
+                    HomeBalance.setText(" " + snapshot.child("WalletBalance").getValue().toString());
                 }
             }
 
@@ -154,5 +187,5 @@ public class HomeFragment extends Fragment {
         });
     }
 
-   
+
 }

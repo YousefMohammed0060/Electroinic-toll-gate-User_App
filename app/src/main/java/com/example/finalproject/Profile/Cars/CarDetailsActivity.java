@@ -43,7 +43,7 @@ public class CarDetailsActivity extends AppCompatActivity {
         EditCarLetters=findViewById(R.id.EditCarLetters);
         carID=findViewById(R.id.carID);
         carID.setEnabled(false);
-        carKey= getIntent().getStringExtra("carKey");
+        carKey= getIntent().getStringExtra("userKey");
 
         carRef = FirebaseDatabase.getInstance().getReference().child("Cars").child(carKey);
         mAuth = FirebaseAuth.getInstance();
@@ -78,6 +78,7 @@ public class CarDetailsActivity extends AppCompatActivity {
         hashMap.put("CarModel",EditCarModel.getText().toString());
         hashMap.put("CarNumbers",EditCarNumber.getText().toString());
         hashMap.put("CarLetters",EditCarLetters.getText().toString());
+        hashMap.put("FullPlateNO",EditCarLetters.getText().toString()+EditCarNumber.getText().toString());
         carRef.updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
             @Override
             public void onComplete(@NonNull Task task) {

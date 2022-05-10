@@ -26,12 +26,9 @@
     <string name="home">Home</string>
     <string name="available_balance">Available Balance</string>
     <string name="last_transaction">Last Transaction:</string>
-    <string name="wallets">Wallets</string>
-    <string name="wallet1">Wallet1</string>
-    <string name="wallet2">Wallet2</string>
-    <string name="wallet3">Wallet3</string>
-    <string name="profile">Profile</string>
-    <string name="Cars">Cars</string>
+    <string name="wallets">Wallet</string>
+    <string name="wallet1">Wallet</string>
+    <string name="Cars">Car</string>
     <string name="Add_Car">Add Car</string>
     <string name="Edit_Car">Edit Car</string>
     <string name="Car_Model">Car Model</string>
@@ -47,4 +44,6 @@
     <string name="to_open_the_gate">To Open the Gate.</string>
     <string name="_1_open_qr_code_scanner">1. Open Qr-code Scanner</string>
     <string name="_2_point_your_camera_to_this_screen_to_capture_the_code">2. Point your camera to this screen to capture the code.</string>
+    <string name="Car">Car</string>
+    <string name="profile">Profile</string>
 </resources>

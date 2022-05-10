@@ -22,7 +22,7 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:padding="20dp"
-            android:text="@string/EditWallet"
+            android:text="@string/wallet1"
             android:textColor="@color/white"
             android:textSize="48sp"
             android:textStyle="bold"

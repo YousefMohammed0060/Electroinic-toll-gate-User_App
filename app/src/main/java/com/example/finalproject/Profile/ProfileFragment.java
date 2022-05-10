@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalproject.Profile.Cars.CarDetailsActivity;
 import com.example.finalproject.Profile.Cars.CarsActivity;
 import com.example.finalproject.Profile.EditProfile.EditProfileActivity;
+import com.example.finalproject.Profile.Wallets.WalletDetailsActivity;
 import com.example.finalproject.Profile.Wallets.WalletsActivity;
 import com.example.finalproject.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -138,10 +140,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(view.getContext(), EditProfileActivity.class));
                 break;
             case R.id.WalletsLayout:
-                startActivity(new Intent(view.getContext(), WalletsActivity.class));
+                Intent intent=new Intent(view.getContext(), WalletDetailsActivity.class);
+                intent.putExtra("userKey",mUser.getUid());
+                startActivity(intent);
                 break;
             case R.id.CarsLayout:
-                startActivity(new Intent(view.getContext(), CarsActivity.class));
+                Intent intent1=new Intent(view.getContext(), CarDetailsActivity.class);
+                intent1.putExtra("userKey",mUser.getUid());
+                startActivity(intent1);
                 break;
         }
     }

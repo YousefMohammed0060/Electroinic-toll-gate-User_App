@@ -36,7 +36,7 @@ public class WalletDetailsActivity extends AppCompatActivity {
     }
 
     private void init() {
-        walletKey = getIntent().getStringExtra("walletKey");
+        walletKey = getIntent().getStringExtra("userKey");
         WalletID=findViewById(R.id.WalletID);
         EditWalletName=findViewById(R.id.EditWalletName);
         EditWalletBalance=findViewById(R.id.EditWalletBalance);

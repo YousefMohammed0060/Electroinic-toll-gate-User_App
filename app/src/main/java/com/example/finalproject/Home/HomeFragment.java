@@ -142,9 +142,9 @@ public class HomeFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(view.getContext(), WalletDetailsActivity.class);
-                        intent.putExtra("walletKey", getRef(position).getKey());
-                        startActivity(intent);
+                            Intent intent = new Intent(view.getContext(), WalletDetailsActivity.class);
+                            intent.putExtra("userKey",model.getUserID());
+                            startActivity(intent);
                     }
                 });
             }

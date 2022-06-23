@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
@@ -43,6 +44,8 @@ public class EditProfileActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     Uri imageUri;
+    StorageReference storageRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class EditProfileActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         mUserRef= FirebaseDatabase.getInstance().getReference().child("Users");
+        storageRef = FirebaseStorage.getInstance().getReference().child("ProfileImages");
 
         LoadUser();
     }
@@ -97,7 +101,33 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
     public void Edit(View view) {
-
+        storageRef.child(mUser.getUid()).putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                if (task.isSuccessful()) {
+                    storageRef.child(mUser.getUid()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            HashMap hashMap=new HashMap();
+                            hashMap.put("phone",EditPhoneNumber.getText().toString());
+                            hashMap.put("username",EditName.getText().toString());
+                            hashMap.put("city",EditCity.getText().toString());
+                            hashMap.put("profileImage",uri.toString());
+                            mUserRef.child(mUser.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+                                @Override
+                                public void onComplete(@NonNull Task task) {
+                                    Toast.makeText(EditProfileActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            
+                        }
+                    });
+                }else {
+                    Toast.makeText(EditProfileActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        
     }
 
     public void EditImage(View view) {

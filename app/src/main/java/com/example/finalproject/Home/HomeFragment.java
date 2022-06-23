@@ -33,12 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-//Home
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeFragment extends Fragment {
 
     View view;
@@ -51,28 +46,15 @@ public class HomeFragment extends Fragment {
     FirebaseRecyclerAdapter<WalletsModel, WalletsViewHolder> adapter;
     FirebaseRecyclerOptions<WalletsModel> options;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public HomeFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -165,13 +147,11 @@ public class HomeFragment extends Fragment {
         HomeLastTransaction = view.findViewById(R.id.HomeLastTransaction);
         HomeWalletsRv = view.findViewById(R.id.HomeWalletsRv);
         HomeWalletsRv.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         walletRef = FirebaseDatabase.getInstance().getReference().child("Wallets");
         billRef = FirebaseDatabase.getInstance().getReference().child("Bills");
-
         walletRef.child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -179,7 +159,6 @@ public class HomeFragment extends Fragment {
                     HomeBalance.setText(" " + snapshot.child("WalletBalance").getValue().toString());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

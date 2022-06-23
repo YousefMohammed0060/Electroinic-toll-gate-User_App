@@ -1,5 +1,4 @@
 package com.example.finalproject.Profile.Cars.RecyclerView;
-// hello
 public class CarsModel {
     String CarModel, UserID ,CarLetters,CarNumbers,FullPlateNO;
 

@@ -83,30 +83,40 @@ public class HomeFragment extends Fragment {
     }
 
     private void LoadWallets() {
-        billRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<billModel> billModels = new ArrayList<>();
-                List<Integer> priceModels = new ArrayList<>();
-                billModels.clear();
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    billModel billModel = postSnapshot.getValue(billModel.class);
-                    billModels.add(billModel);
-                }
-                for (int i = 0; i < billModels.size(); i++) {
-                    String userId = billModels.get(i).getUserID();
-                    if (mUser.getUid().equals(userId)) {
-                        priceModels.add(billModels.get(i).getPrice());
+            billRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        List<billModel> billModels = new ArrayList<>();
+                        List<Integer> priceModels = new ArrayList<>();
+                        billModels.clear();
+                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                            billModel billModel = postSnapshot.getValue(billModel.class);
+                            billModels.add(billModel);
+                        }
+                        for (int i = 0; i < billModels.size(); i++) {
+                            String userId = billModels.get(i).getUserID();
+                            if (mUser.getUid().equals(userId)) {
+                                priceModels.add(billModels.get(i).getPrice());
+                            }
+                        }
+                        if (priceModels.size()>0)
+                            HomeLastTransaction.setText(" "+priceModels.get(priceModels.size() - 1) + "");
+                        else
+                            HomeLastTransaction.setText(" 0");
                     }
+
                 }
-                HomeLastTransaction.setText(priceModels.get(priceModels.size() - 1) + "");
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                }
+
+            });
+
+
+
 
 
         options = new FirebaseRecyclerOptions.Builder<WalletsModel>().setQuery(walletRef, WalletsModel.class).build();

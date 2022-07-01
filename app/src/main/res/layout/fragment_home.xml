@@ -33,8 +33,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="serif"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -48,8 +47,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            android:fontFamily="serif" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -81,7 +79,6 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="serif"
                         android:padding="5dp"
                         android:text=" L.E"
                         android:textColor="@color/white"
@@ -95,8 +92,7 @@
                         android:id="@+id/HomeBalance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:text=" 100"
+                        android:text=" 0"
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         android:textStyle="bold"
@@ -148,8 +144,7 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView2"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:fontFamily="serif" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/HomeLastTransaction"
@@ -161,8 +156,7 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView11"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:fontFamily="serif"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -174,8 +168,7 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/HomeLastTransaction"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:fontFamily="serif" />
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -192,8 +185,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-            android:fontFamily="serif" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

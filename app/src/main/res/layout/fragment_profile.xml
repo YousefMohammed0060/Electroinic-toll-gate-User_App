@@ -33,8 +33,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="serif" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -94,7 +93,6 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:padding="10dp"
                 android:text="Edit Profile"
                 android:textColor="@color/white"
@@ -140,7 +138,6 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:padding="10dp"
                 android:text="@string/wallets"
                 android:textColor="@color/white"
@@ -186,7 +183,6 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:padding="10dp"
                 android:text="@string/Cars"
                 android:textColor="@color/white"

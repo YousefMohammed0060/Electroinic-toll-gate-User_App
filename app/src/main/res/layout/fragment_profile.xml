@@ -37,7 +37,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/ProfileImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
